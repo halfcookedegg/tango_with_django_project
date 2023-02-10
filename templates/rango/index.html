@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block mainBody %}
+<p>Rango says hey there partner!</p>
+<p>Check out our about page <a href="{% url 'rango:about' %}">here</a>.</p>
+<a href="/rango/add_category/">Add a New Category</a><br />
+{% for category in categories %}
+<li>
+<a href="{% url 'rango:show_category' category.slug %}">.
+{{ category.name }}
+</a>
+</li>
+{% endfor %}
+
+
+{% endblock mainBody %}
