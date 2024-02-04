@@ -17,7 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'statics'),]
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
-
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
