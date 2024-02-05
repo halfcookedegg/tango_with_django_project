@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Rango - Welcome{% endblock %}
+
+{% block content %}
+    <h1>Rango says...</h1>
+    <p>hey there partner! Crunchy, creamy, cookie, candy, cupcake!</p>
+
+    <div>
+        <h2>Most Liked Categories</h2>
+       {% if categories %}
+            <ul>
+                {% for category in categories %}
+                    <li><a href="{% url 'rango:show_category' category.slug %}">{{ category.name }}</a></li>
+                {% endfor %}
+            </ul>
+       {% else %}
+            <strong>No categories present.</strong>
+        {% endif %}
+    </div>
+
+    <div>
+        <h2>Most Viewed Pages</h2>
+        <ul>
+            <li><a href="http://docs.python.org/3/tutorial/">Official Python Tutorial</a></li>
+            <li><a href="http://www.korokithakis.net/tutorials/python/">Learn Python in 10 Minutes</a></li>
+            <li><a href="http://www.tangowithdjango.com/">How to Tango with Django</a></li>
+        </ul>
+    </div>
+
+
+{% endblock %}
