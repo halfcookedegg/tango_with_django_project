@@ -1,3 +1,4 @@
+from django.template.defaultfilters import slugify
 
 from .models import Category, Page
 from django.shortcuts import render, redirect
@@ -8,10 +9,7 @@ def index(request):
     context_dict = {'categories': category_list}
     return render(request, 'rango/index.html', context = context_dict)
 
-def rango(request):
-    category_list = Category.objects.order_by('-likes')[:5]
-    context_dict = {'categories': category_list}
-    return render(request, 'rango/rango.html', context = context_dict)
+
 
 def about(request):
     return render(request, 'rango/about.html')
