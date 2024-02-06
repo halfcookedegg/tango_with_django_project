@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Register
+{% endblock %}
+{% block content %}
+<div class="jumbotron">
+    <h1>Register for Rango</h1>
+    {% if registered %}
+    <h2>Thank you for registering!</h2>
+    <a href="{% url 'rango:index' %}">Return to the homepage.</a>
+    {% else %}
+    <form id="user_form" method="post" action="{% url 'rango:register' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <p>
+            {{ user_form.username.label_tag }}<br>
+            {{ user_form.username }}
+            {{ user_form.username.errors }}
+        </p>
+        <p>
+            {{ user_form.email.label_tag }}<br>
+            {{ user_form.email }}
+            {{ user_form.email.errors }}
+        </p>
+        <p>
+            {{ user_form.password.label_tag }}<br>
+            {{ user_form.password }}
+            {{ user_form.password.errors }}
+        </p>
+        <p>
+            {{ profile_form.website.label_tag }}<br>
+            {{ profile_form.website }}
+            {{ profile_form.website.errors }}
+        </p>
+        <p>
+            {{ profile_form.picture.label_tag }}<br>
+            {{ profile_form.picture }}
+            {{ profile_form.picture.errors }}
+        </p>
+        <input type="submit" name="submit" value="Register" />
+    </form>
+    {% endif %}
+</div>
+{% endblock %}
